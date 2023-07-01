@@ -2,11 +2,14 @@ package linkedlist
 
 import (
 	"fmt"
-	"reflect"
 )
 
 type LinkedList struct {
 	head *Node
+}
+
+func NewLinkedList() *LinkedList {
+	return &LinkedList{}
 }
 
 func (ll *LinkedList) Print() {
@@ -16,18 +19,6 @@ func (ll *LinkedList) Print() {
 		fmt.Println(current.toString())
 		current = current.next
 	}
-}
-
-func (ll *LinkedList) PrintTypeOf() {
-	current := ll.head
-	for current != nil {
-		fmt.Println(reflect.TypeOf(current.data))
-		current = current.next
-	}
-}
-
-func NewLinkedList() *LinkedList {
-	return &LinkedList{}
 }
 
 // insert node to head
@@ -126,4 +117,31 @@ func (ll *LinkedList) AddAfterNode(nodeData, data interface{}) {
 	}
 	newNode.next = node.next
 	node.next = newNode
+}
+
+func (ll *LinkedList) DeleteNode(data interface{}) error {
+	current := ll.head
+
+	if current == nil {
+		return fmt.Errorf("does not contain node")
+	}
+
+	if current.data == data {
+		ll.head = current.next
+		return nil
+	}
+
+	for {
+		if current.next == nil {
+			return fmt.Errorf("does not contain node")
+		}
+
+		if current.next.data == data {
+			// delete node
+			current.next = current.next.next
+			return nil
+		}
+
+		current = current.next
+	}
 }

@@ -17,30 +17,43 @@ package linkedlist
 // 	list := linkedlist.NewLinkedList()
 // 	list.InsertToEnd("nqnlong")
 // 	list.InsertToEnd(12)
-// 	list.InsertToEnd(Product{
-// 		"watersport",
-// 		12,
-// 	})
 // 	list.InsertToHead("check checks")
 // 	list.InsertToEnd("nguyen bay")
 // 	list.InsertToHead("first commit")
-// 	// list.Print()
+// 	list.Print()
 
-// 	// fmt.Println()
-// 	// list.PrintTypeOf()
-// 	// fmt.Println(list.LastNode())
+// 	fmt.Println()
+// 	fmt.Println(list.LastNode())
 
-// 	// node := list.FindNode("nguyen bay")
+// 	node := list.FindNode("nguyen bay")
 
-// 	// fmt.Println("reult", node)
+// 	fmt.Println("reult", node)
 // 	list.AddAfterNode("nqnlong", "ngoclong")
-// 	// l := list.InterateList()
-// 	// for _, v := range l {
-// 	// 	fmt.Println(v)
-// 	// }
+// 	l := list.InterateList()
+// 	for _, v := range l {
+// 		fmt.Println(v)
+// 	}
 
-// 	node := list.FindNode("ngoclong")
+// 	node = list.FindNode("ngoclong")
 // 	fmt.Println(*node)
+
+// 	list.Print()
+// 	fmt.Println("delete node")
+
+// 	err := list.DeleteNode("ngoclong")
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	} else {
+// 		list.Print()
+// 	}
+
+// 	node = list.FindNode("ngoclong")
+// 	if node == nil {
+// 		fmt.Println("does not exist")
+// 	} else {
+// 		fmt.Println(*node)
+// 	}
+
 // }
 
 /*
